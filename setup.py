@@ -26,7 +26,8 @@ import sys, os
 from warnings import warn
 from distutils import log
 from distutils.command.build_ext import build_ext as _build_ext
-from version import get_git_version
+
+version = "0.5.0"
 
 try:
     from setuptools import setup, Extension
@@ -48,10 +49,6 @@ except NameError:
             if isinstance(s, str):
                 return s
             return s and s.decode('utf-8') or None
-
-version = get_git_version()
-if version and not isinstance(version, unicode):
-    version = unicode(version)
 
 # set this to any true value to enable multithreaded compression
 ENABLE_MULTITHREADING = True
